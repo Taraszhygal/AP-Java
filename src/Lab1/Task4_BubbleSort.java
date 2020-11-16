@@ -1,4 +1,4 @@
-    package nulp_project.Lab1;
+    package Lab1;
 
     import java.util.Random;
 

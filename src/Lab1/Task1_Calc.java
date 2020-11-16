@@ -1,8 +1,8 @@
-package nulp_project.Lab1;
+package Lab1;
 
 import java.util.Scanner;
 
-public class Task1_Calc {
+public class  Task1_Calc {
     private static Scanner in = new Scanner(System.in);
     private static String s;
     private static char operator;
@@ -60,6 +60,7 @@ public class Task1_Calc {
                 case '/' :
                     if (operand2==0){
                         System.err.println("Ділення на ноль заборонено");
+                        break;
                     }
                     res = operand1/operand2;
                     break;

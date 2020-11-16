@@ -1,4 +1,4 @@
-package nulp_project.Lab1;
+package Lab1;
 
 public class Task2_lenSort {
     public static void main(String[] args) {

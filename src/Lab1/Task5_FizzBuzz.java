@@ -1,4 +1,4 @@
-package nulp_project.Lab1;
+package Lab1;
 
 public class Task5_FizzBuzz {
     public static void main(String[] args) {
