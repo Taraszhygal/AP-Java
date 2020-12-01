@@ -10,15 +10,15 @@ public class Main {
 
     public static void main(String[] args) {
         while (loop) {
-           // operator = ' ';
+            // operator = ' ';
             boolean valid = true;
             System.out.println("Введіть вираз для обрахування або \"exit\" для виходу");
             //прийом введених  даних
             String inputString = in.nextLine();
 
             //перевірка на код виходу
-            if (inputString.trim().equals("exit")){
-                loop=false;
+            if (inputString.trim().equals("exit")) {
+                loop = false;
                 break;
             }
 
@@ -40,13 +40,14 @@ public class Main {
             }
 
             // Обрахунок введених даних
-            if (!valid){
+            if (!valid) {
                 try {
-                    Calculator calculator = new Calculator( Double.parseDouble(operands[0]),
-                                                            Double.parseDouble(operands[1]),
-                                                            operator);
+                    Calculator calculator = new Calculator(
+                            Double.parseDouble(operands[0]),
+                            Double.parseDouble(operands[1]),
+                            operator);
                     System.out.println(calculator.calculate());
-                } catch (DivideByZeroException e){
+                } catch (DivideByZeroException e) {
                     System.out.println(e.getLocalizedMessage());
                 }
 
@@ -74,8 +75,8 @@ public class Main {
             double res = 0;
             switch (operation) {
                 case '/':
-                    if (operand2==0) {
-                        throw new DivideByZeroException(" Arithmetical Exception" , "Ви не можете ділити на ноль");
+                    if (operand2 == 0) {
+                        throw new DivideByZeroException(" Arithmetical Exception", "Ви не можете ділити на ноль");
                     }
                     res = operand1 / operand2;
                     break;
