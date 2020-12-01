@@ -1,13 +1,13 @@
 package Lab2.Task3;
 
 public class LinkedList implements Queue {
-    private Node head; //last added element
-    private Node tail; //firs added element
+    private Node tail; //last added element
+    private Node head; //firs added element
 
     //default constructor
     LinkedList(){
-        this.head=null;
-        this.tail=null;
+        this.tail =null;
+        this.head =null;
     }
 
     //method calculate and return list size
@@ -15,11 +15,11 @@ public class LinkedList implements Queue {
     public int size(){
         int size = 0;
 
-        if (tail == null){
+        if (head == null){
             return size;
         }
 
-        Node tailPointer = tail;
+        Node tailPointer = head;
 
         while (tailPointer != null){
             ++size;
@@ -32,9 +32,9 @@ public class LinkedList implements Queue {
     //method output all list elements
     @Override
     public void getAll(){
-        Node tailPointer = tail;
+        Node tailPointer = head;
 
-        if (tail == null){ //check for empty list
+        if (head == null){ //check for empty list
             System.out.println("List is empty");
         }else {
             System.out.print("list = [ ");
@@ -46,36 +46,36 @@ public class LinkedList implements Queue {
         }
     }
 
-    //method add element to list head
+    //method add element to list tail
     @Override
     public <V> void add(V value) {
         //if list is empty
-        if (tail == null){
-           tail = new Node(value,null,null);
+        if (head == null){
+           head = new Node(value,null,null);
            return;
         }
         // if list has only 1 element
         if (this.size()==1){
-            head = new Node(value,tail,null);
-            tail.setPrevious(head);
+            tail = new Node(value, head,null);
+            head.setPrevious(tail);
             return;
         }
-        //create new node and set the head of list
-        head = new Node(value,head,null);
-        //set old head link to new head
-        head.getNext().setPrevious(head);
+        //create new node and set the tail of list
+        tail = new Node(value, tail,null);
+        //set old tail link to new tail
+        tail.getNext().setPrevious(tail);
 
 
     }
 
-    //FIFO = delete element from list tail
+    //FIFO = delete element from list head
     @Override
     public void delete() {
-        if (tail!=null && size()!=1){
-         tail = tail.getPrevious();
-         tail.setNext(null);
-        } else if(size()==1){// do it if in list only tail
-            tail =null;
+        if (head !=null && size()!=1){
+         head = head.getPrevious();
+         head.setNext(null);
+        } else if(size()==1){// do it if in list only head
+            head =null;
             System.out.println("List is empty");
         }else
             System.out.println("List is empty");
@@ -83,13 +83,13 @@ public class LinkedList implements Queue {
 
     @Override
     public void delete(int index) {
-        Node currentPointer = tail;
+        Node currentPointer = head;
 
 
         if (index>=size()) { //show it if index not existing
             System.out.println("there is no item with this index ");
         }
-        //delete tail
+        //delete head
         if (index == 0){
             delete();
             return;
@@ -110,10 +110,10 @@ public class LinkedList implements Queue {
             }
             return;
         }
-        //delete current head
+        //delete current tail
         if (index==this.size()-1){
-           head = head.getNext();
-           head.setPrevious(null);
+           tail = tail.getNext();
+           tail.setPrevious(null);
         }
     }
 
