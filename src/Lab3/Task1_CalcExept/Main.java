@@ -58,7 +58,7 @@ public class Main {
 
     // клас що відповідає за обрахунки
 //    знаю що не бажано декілька класів в одному файлі , але для простоти перевірки зробив так\о/
-    private static class Calculator {
+    public static class Calculator {
         final double operand1;
         final double operand2;
         final char operation;
