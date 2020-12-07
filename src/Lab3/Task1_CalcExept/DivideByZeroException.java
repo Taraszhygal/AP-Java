@@ -4,6 +4,7 @@ public class DivideByZeroException extends Exception {
     private String type;
     private String message;
 
+    //custom exception
     public DivideByZeroException(String type, String message) {
         super("Error:" + type + " log: " + message);
         this.type = type;

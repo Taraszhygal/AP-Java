@@ -23,7 +23,7 @@ public class Main {
         }
 
         for (User user : users) {
-            System.out.println("перевіряються поля користувача: " + user.getFirstName() + " " + user.getLastName());
+            System.out.println("перевірка полів користувача: " + user.getFirstName() + " " + user.getLastName());
 
             try {
                 validate(user);
@@ -43,7 +43,7 @@ public class Main {
                 || user.getFirstName().matches(".*\\d.*")
                 || user.getFirstName().matches(".*\\p{Space}.*")) {
             //if condition invalid throw custom  exception
-            throw new InvalidDataException(ErrorCode.CODE_400, "Bad Request",
+            throw new InvalidDataException(ResponseCode.CODE_400, "Bad Request",
                     "Поле first name повинне бути не порожнє, не містити цифер та пробілів");
         }
 
@@ -52,7 +52,7 @@ public class Main {
                 || user.getLastName().matches(".*\\d.*")
                 || user.getLastName().matches(".*\\p{Space}.*")) {
 
-            throw new InvalidDataException(ErrorCode.CODE_400, "Bad Request",
+            throw new InvalidDataException(ResponseCode.CODE_400, "Bad Request",
                     "Поле last name повинне бути не порожнє, не містити цифер та пробілів");
         }
 
@@ -60,7 +60,7 @@ public class Main {
         if (user.getAddress().getCity().length() == 0
                 || user.getAddress().getCity().matches(".*\\d.*")) {
 
-            throw new InvalidDataException(ErrorCode.CODE_400, "Bad Request",
+            throw new InvalidDataException(ResponseCode.CODE_400, "Bad Request",
                     "Поле city повинне бути не порожнє та не містити цифер");
         }
 
@@ -68,7 +68,7 @@ public class Main {
         if (user.getAddress().getDistrict().length() == 0
                 || user.getAddress().getDistrict().matches(".*\\d.*")) {
 
-            throw new InvalidDataException(ErrorCode.CODE_400, "Bad Request",
+            throw new InvalidDataException(ResponseCode.CODE_400, "Bad Request",
                     "Поле district повинне бути не порожнє та не містити цифер");
         }
 
@@ -76,7 +76,7 @@ public class Main {
         if (user.getAddress().getPostCode().length() == 0
                 || user.getAddress().getPostCode().matches(".*\\D")) {
 
-            throw new InvalidDataException(ErrorCode.CODE_400, "Bad Request",
+            throw new InvalidDataException(ResponseCode.CODE_400, "Bad Request",
                     "Поле post index повинне бути не порожнє та не містити букв");
         }
 
@@ -86,21 +86,23 @@ public class Main {
                 || !user.getEmail().matches(".*[.].*")
                 || user.getEmail().matches(".*\\p{Space}.*")) {
 
-            throw new InvalidDataException(ErrorCode.CODE_400, "Bad Request",
+            throw new InvalidDataException(ResponseCode.CODE_400, "Bad Request",
                     "Поле email повинне бути не порожнє, містити @ та '.'  не містити пробілів");
         }
 
-        //checking last name  for: no empty, no numbers, no spaces.
+        //checking password  for: no shorter then 6 symbols, have numbers and letter, no spaces.
         if (user.getPassword().length() < 6
                 || !user.getPassword().matches(".*\\d.*")
                 || !user.getPassword().matches(".*\\p{Alpha}.*")
                 || user.getPassword().matches(".*\\p{Space}.*")) {
 
-            throw new InvalidDataException(ErrorCode.CODE_400, "Bad Request",
+            throw new InvalidDataException(ResponseCode.CODE_400, "Bad Request",
                     "Поле password повинне бути не коротше 6 символів, містити цифри та букви і не містити пробілів");
         }
 
-        System.out.println(user.getFirstName() + " " + user.getLastName() + " успішно пройшов перевірку ");
+        //output successful user validation
+        System.out.println(user.getFirstName() + " " + user.getLastName() + " успішно пройшов перевірку\n"
+                + ResponseCode.CODE_200.getResponsesDetail());
 
     }
 }

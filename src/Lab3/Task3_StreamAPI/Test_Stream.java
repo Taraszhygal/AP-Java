@@ -1,11 +1,11 @@
 package Lab3.Task3_StreamAPI;
 
-import Lab3.Task2_UncheckExept.Address;
-import Lab3.Task2_UncheckExept.User;
+        import Lab3.Task2_UncheckExept.Address;
+        import Lab3.Task2_UncheckExept.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.stream.Collectors;
 
 public class Test_Stream {
     public static void main(String[] args) {
